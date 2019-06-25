@@ -18,6 +18,11 @@
 		380D247022BA135600AE203A /* HTagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 380D246F22BA135600AE203A /* HTagViewModel.m */; };
 		380D247222BA178800AE203A /* HTagViewStyle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 380D247122BA178800AE203A /* HTagViewStyle.plist */; };
 		380D247622BA1E3700AE203A /* HTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 380D247522BA1E3700AE203A /* HTagView.m */; };
+		384B5FAD22C1B69F00AD9123 /* HMarkedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B5FAC22C1B69F00AD9123 /* HMarkedImageView.m */; };
+		384B5FB922C1C8CA00AD9123 /* HcdRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B5FB822C1C8CA00AD9123 /* HcdRouter.m */; };
+		384B5FBD22C1C9C000AD9123 /* HcdBaseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B5FBC22C1C9C000AD9123 /* HcdBaseAppDelegate.m */; };
+		384B5FC422C1CBC500AD9123 /* UIView+HcdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 384B5FC322C1CBC500AD9123 /* UIView+HcdView.m */; };
+		384B5FC622C1CE6F00AD9123 /* HcdRouter.plist in Resources */ = {isa = PBXBuildFile; fileRef = 384B5FC522C1CE6F00AD9123 /* HcdRouter.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,20 @@
 		380D247122BA178800AE203A /* HTagViewStyle.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HTagViewStyle.plist; sourceTree = "<group>"; };
 		380D247422BA1E3700AE203A /* HTagView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTagView.h; sourceTree = "<group>"; };
 		380D247522BA1E3700AE203A /* HTagView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTagView.m; sourceTree = "<group>"; };
+		384B5FAB22C1B69F00AD9123 /* HMarkedImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HMarkedImageView.h; sourceTree = "<group>"; };
+		384B5FAC22C1B69F00AD9123 /* HMarkedImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HMarkedImageView.m; sourceTree = "<group>"; };
+		384B5FB122C1C4B700AD9123 /* HcdKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HcdKit.h; sourceTree = "<group>"; };
+		384B5FB322C1C4F000AD9123 /* UIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIMacro.h; sourceTree = "<group>"; };
+		384B5FB422C1C5AB00AD9123 /* TagImageView-PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TagImageView-PrefixHeader.pch"; sourceTree = "<group>"; };
+		384B5FB722C1C8CA00AD9123 /* HcdRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HcdRouter.h; sourceTree = "<group>"; };
+		384B5FB822C1C8CA00AD9123 /* HcdRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HcdRouter.m; sourceTree = "<group>"; };
+		384B5FBB22C1C9C000AD9123 /* HcdBaseAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HcdBaseAppDelegate.h; sourceTree = "<group>"; };
+		384B5FBC22C1C9C000AD9123 /* HcdBaseAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HcdBaseAppDelegate.m; sourceTree = "<group>"; };
+		384B5FBE22C1CA4D00AD9123 /* HcdCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HcdCommon.h; sourceTree = "<group>"; };
+		384B5FC122C1CB9F00AD9123 /* HcdUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HcdUIKit.h; sourceTree = "<group>"; };
+		384B5FC222C1CBC500AD9123 /* UIView+HcdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HcdView.h"; sourceTree = "<group>"; };
+		384B5FC322C1CBC500AD9123 /* UIView+HcdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HcdView.m"; sourceTree = "<group>"; };
+		384B5FC522C1CE6F00AD9123 /* HcdRouter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HcdRouter.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +74,7 @@
 		380D243822BA0BF100AE203A = {
 			isa = PBXGroup;
 			children = (
+				384B5FB022C1C49D00AD9123 /* HcdKit */,
 				380D246022BA0FA200AE203A /* Source */,
 				380D244322BA0BF200AE203A /* TagImageView */,
 				380D244222BA0BF200AE203A /* Products */,
@@ -82,6 +102,7 @@
 				380D245222BA0C0900AE203A /* LaunchScreen.storyboard */,
 				380D245522BA0C0900AE203A /* Info.plist */,
 				380D245622BA0C0900AE203A /* main.m */,
+				384B5FB422C1C5AB00AD9123 /* TagImageView-PrefixHeader.pch */,
 			);
 			path = TagImageView;
 			sourceTree = "<group>";
@@ -112,8 +133,76 @@
 			children = (
 				380D247422BA1E3700AE203A /* HTagView.h */,
 				380D247522BA1E3700AE203A /* HTagView.m */,
+				384B5FAB22C1B69F00AD9123 /* HMarkedImageView.h */,
+				384B5FAC22C1B69F00AD9123 /* HMarkedImageView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		384B5FB022C1C49D00AD9123 /* HcdKit */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FB122C1C4B700AD9123 /* HcdKit.h */,
+				384B5FBF22C1CB6A00AD9123 /* HcdUIKit */,
+				384B5FB222C1C4E000AD9123 /* HcdMacro */,
+				384B5FB522C1C85900AD9123 /* HcdCommon */,
+			);
+			path = HcdKit;
+			sourceTree = "<group>";
+		};
+		384B5FB222C1C4E000AD9123 /* HcdMacro */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FB322C1C4F000AD9123 /* UIMacro.h */,
+			);
+			path = HcdMacro;
+			sourceTree = "<group>";
+		};
+		384B5FB522C1C85900AD9123 /* HcdCommon */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FBE22C1CA4D00AD9123 /* HcdCommon.h */,
+				384B5FBA22C1C9AD00AD9123 /* HcdBaseAppDelegate */,
+				384B5FB622C1C87B00AD9123 /* HcdRouter */,
+			);
+			path = HcdCommon;
+			sourceTree = "<group>";
+		};
+		384B5FB622C1C87B00AD9123 /* HcdRouter */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FB722C1C8CA00AD9123 /* HcdRouter.h */,
+				384B5FB822C1C8CA00AD9123 /* HcdRouter.m */,
+				384B5FC522C1CE6F00AD9123 /* HcdRouter.plist */,
+			);
+			path = HcdRouter;
+			sourceTree = "<group>";
+		};
+		384B5FBA22C1C9AD00AD9123 /* HcdBaseAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FBB22C1C9C000AD9123 /* HcdBaseAppDelegate.h */,
+				384B5FBC22C1C9C000AD9123 /* HcdBaseAppDelegate.m */,
+			);
+			path = HcdBaseAppDelegate;
+			sourceTree = "<group>";
+		};
+		384B5FBF22C1CB6A00AD9123 /* HcdUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FC122C1CB9F00AD9123 /* HcdUIKit.h */,
+				384B5FC022C1CB9400AD9123 /* HcdUICategory */,
+			);
+			path = HcdUIKit;
+			sourceTree = "<group>";
+		};
+		384B5FC022C1CB9400AD9123 /* HcdUICategory */ = {
+			isa = PBXGroup;
+			children = (
+				384B5FC222C1CBC500AD9123 /* UIView+HcdView.h */,
+				384B5FC322C1CBC500AD9123 /* UIView+HcdView.m */,
+			);
+			path = HcdUICategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +267,7 @@
 				380D247222BA178800AE203A /* HTagViewStyle.plist in Resources */,
 				380D245122BA0C0900AE203A /* Assets.xcassets in Resources */,
 				380D244C22BA0BF200AE203A /* Main.storyboard in Resources */,
+				384B5FC622C1CE6F00AD9123 /* HcdRouter.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,12 +279,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				380D244922BA0BF200AE203A /* ViewController.m in Sources */,
+				384B5FBD22C1C9C000AD9123 /* HcdBaseAppDelegate.m in Sources */,
+				384B5FC422C1CBC500AD9123 /* UIView+HcdView.m in Sources */,
 				380D245722BA0C0900AE203A /* main.m in Sources */,
 				380D247022BA135600AE203A /* HTagViewModel.m in Sources */,
 				380D246A22BA102800AE203A /* HTagModel.m in Sources */,
 				380D244622BA0BF200AE203A /* AppDelegate.m in Sources */,
+				384B5FB922C1C8CA00AD9123 /* HcdRouter.m in Sources */,
 				380D245F22BA0DA000AE203A /* Model.xcdatamodeld in Sources */,
 				380D247622BA1E3700AE203A /* HTagView.m in Sources */,
+				384B5FAD22C1B69F00AD9123 /* HMarkedImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLP5PZS8U3;
+				GCC_PREFIX_HEADER = "TagImageView/TagImageView-PrefixHeader.pch";
 				INFOPLIST_FILE = TagImageView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -355,6 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NLP5PZS8U3;
+				GCC_PREFIX_HEADER = "TagImageView/TagImageView-PrefixHeader.pch";
 				INFOPLIST_FILE = TagImageView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

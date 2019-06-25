@@ -47,7 +47,7 @@ typedef enum : NSUInteger {
  @param tagModels tag数组
  @param coordinate 相对父视图坐标
  */
-- (instancetype)initWithTagModels:(NSArray <HTagModel *> *)tagModels coordinate:(CGPoint)coordinate;
+- (instancetype)initWithTagModels:(NSMutableArray <HTagModel *> *)tagModels coordinate:(CGPoint)coordinate;
 
 /**
  根据标签数量进行判断

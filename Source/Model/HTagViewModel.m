@@ -26,9 +26,9 @@ static NSDictionary *STYLE_DICT;
     return self;
 }
 
-- (instancetype)initWithTagModels:(NSArray<HTagModel *> *)tagModels coordinate:(CGPoint)coordinate {
+- (instancetype)initWithTagModels:(NSArray <HTagModel *> *)tagModels coordinate:(CGPoint)coordinate {
     if (self = [self init]) {
-        if (tagModels) {
+        if (!tagModels) {
             tagModels = [NSMutableArray<HTagModel *> array];
         }
         _tagModels = tagModels.mutableCopy;

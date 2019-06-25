@@ -1,0 +1,19 @@
+//
+//  TagImageView-PrefixHeader.pch
+//  TagImageView
+//
+//  Created by 超讯研发部 on 2019/6/25.
+//  Copyright © 2019 Jvaeyhcd. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#pragma mark - Lumberjack
+#define LOG_LEVEL_DEF ddLogLevel
+//#import <CocoaLumberjack/CocoaLumberjack.h>
+
+#pragma mark - Custom
+#import "HcdKit.h"
+#endif

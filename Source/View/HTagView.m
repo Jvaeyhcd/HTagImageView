@@ -16,6 +16,8 @@ CGFloat const kTextLayerHorizontalPadding = 10.0f;
 //与下方底线的垂直距离
 CGFloat const kTextLayerVerticalPadding = 5.0f;
 
+CGFloat const kTextPadding = 4.0f;
+
 //底线从圆心伸延的长度
 CGFloat const kUnderLineLayerRadius = 25.0f;
 
@@ -82,6 +84,17 @@ NSString *const kAnimationKeyHide = @"hide";
         [self setupLayers];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    
+    // 是否需要更新center
+    if (_needsUpdateCenter) {
+        CGFloat x = self.superview.bounds.size.width * _viewModel.coordinate.x;
+        CGFloat y = self.superview.bounds.size.height * _viewModel.coordinate.y;
+        self.center = CGPointMake(x, y);
+        _needsUpdateCenter = NO;
+    }
 }
 
 #pragma mark - Public
@@ -250,7 +263,13 @@ NSString *const kAnimationKeyHide = @"hide";
 - (void)setupLayers {
     // 初始化
     _viewHidden = YES;
-    [self.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    NSArray<CALayer *> *subLayers = self.layer.sublayers;
+    NSArray<CALayer *> *removedLayers = [subLayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [evaluatedObject isKindOfClass:[CALayer class]];
+    }]];
+    [removedLayers enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperlayer];
+    }];
     
     [_textLayers removeAllObjects];
     [_underLineLayers removeAllObjects];
@@ -268,7 +287,7 @@ NSString *const kAnimationKeyHide = @"hide";
         [_textLayers addObject:textLayer];
         
         // 文本高度
-        tag.textSize = [textLayer preferredFrameSize];
+        tag.textSize = [self getTextSizeWithModel:tag];
         textLayer.bounds = CGRectMake(0, 0, tag.textSize.width, tag.textSize.height);
         
         // 线段
@@ -303,6 +322,7 @@ NSString *const kAnimationKeyHide = @"hide";
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, kCenterPointRadius * 2, kCenterPointRadius * 2)].CGPath;
     shapeLayer.fillColor = [UIColor whiteColor].CGColor;
+    shapeLayer.bounds = CGRectMake(0, 0, kCenterPointRadius * 2, kCenterPointRadius * 2);
     shapeLayer.position = CGPointMake(self.layer.bounds.size.width / 2, self.layer.bounds.size.height / 2);
     shapeLayer.opacity = 0;
     
@@ -487,6 +507,8 @@ NSString *const kAnimationKeyHide = @"hide";
             //计算偏移量并更新自己的center
             CGPoint position = [recognizer locationInView:self.superview];
             
+            NSLog(@"position x = %lf, y = %lf", position.x, position.y);
+            
             CGFloat moveX = position.x - _startPosition.x;
             CGFloat moveY = position.y - _startPosition.y;
             
@@ -585,21 +607,29 @@ NSString *const kAnimationKeyHide = @"hide";
     
     CGSize maxWidthSize = CGSizeZero;
     for (HTagModel *tagModel in _viewModel.tagModels) {
-        NSString *text;
-        if (tagModel.name.length != 0) {
-            text = [NSString stringWithFormat:@"%@ %@", tagModel.name, tagModel.value];
-        } else {
-            text = [NSString stringWithFormat:@"%@", tagModel.value];
-        }
-        
-        UIFont *font = [UIFont systemFontOfSize:kTextFontSize];
-        CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName:font}];
+        CGSize textSize = [self getTextSizeWithModel:tagModel];
         if (textSize.width > maxWidthSize.width) {
             maxWidthSize = textSize;
         }
     }
     
     return maxWidthSize;
+}
+
+- (CGSize)getTextSizeWithModel:(HTagModel *)tagModel {
+    NSString *text;
+    if (tagModel.name.length != 0) {
+        text = [NSString stringWithFormat:@"%@ %@", tagModel.name, tagModel.value];
+    } else {
+        text = [NSString stringWithFormat:@"%@", tagModel.value];
+    }
+    
+    UIFont *font = [UIFont systemFontOfSize:kTextFontSize];
+    CGSize textSize = [text sizeWithAttributes:@{NSFontAttributeName:font}];
+    
+    textSize = CGSizeMake(textSize.width + kTextPadding * 2, textSize.height + kTextPadding);
+    
+    return textSize;
 }
 
 /**
